@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/colorWhite"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/relativeLayout7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/layout_1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.85"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/icon_extra_large_size_main"
+                android:layout_height="@dimen/icon_extra_large_size_main"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_weight="0.1"
+                android:src="@drawable/logo"
+                app:layout_constraintBottom_toTopOf="@+id/materialCardView3" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/universal_ui_padding_double"
+                android:layout_weight="0.1"
+                android:fontFamily="@font/droidsans"
+                android:text="Go Rail"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/main_header_text"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/layout_3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="0.8"
+                android:orientation="vertical"
+                android:paddingTop="20dp"
+                android:paddingBottom="40dp"
+                android:weightSum="1">
+
+                <EditText
+                    android:id="@+id/et_nic"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/slider_tiny_height"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_weight="0.2"
+                    android:background="@drawable/signin_box"
+                    android:fontFamily="@font/droidsans"
+                    android:hint="@string/user_name"
+                    android:inputType="textCapCharacters"
+                    android:paddingLeft="20dp"
+                    android:textAllCaps="true" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.1"
+                    android:orientation="vertical"></LinearLayout>
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/slider_tiny_height"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_weight="0.2"
+                    android:background="@drawable/signin_box"
+                    android:fontFamily="@font/droidsans"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:paddingLeft="20dp"
+                    android:textAllCaps="true" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/const_signIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/universal_ui_padding_10"
+                    android:clickable="true"
+                    android:hapticFeedbackEnabled="true">
+
+                    <TextView
+                        android:id="@+id/btn_width"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:elevation="11dp"
+                        android:fontFamily="@font/droidsans"
+                        android:paddingHorizontal="100dp"
+                        android:text="@string/sign_in"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/header_text"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/lotiie_signIn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:elevation="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/btn_width"
+                        app:layout_constraintStart_toStartOf="@+id/btn_width"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/btn_1"
+                        app:lottie_speed=".3" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--                <TextView-->
+                <!--                    android:id="@+id/tv_btn"-->
+                <!--                    android:layout_width="@dimen/btn_width"-->
+                <!--                    android:layout_height="@dimen/tf_height_30"-->
+                <!--                    android:layout_gravity="center"-->
+                <!--                    android:layout_marginTop="@dimen/universal_ui_padding_double"-->
+                <!--                    android:layout_weight="0.2"-->
+                <!--                    android:background="@drawable/rount_button"-->
+                <!--                    android:fontFamily="@font/droidsans"-->
+                <!--                    android:paddingTop="20dp"-->
+                <!--                    android:text="Sign In"-->
+                <!--                    android:textAlignment="center"-->
+                <!--                    android:textColor="@color/colorWhite"-->
+                <!--                    android:textSize="@dimen/sub_header_text"-->
+                <!--                    android:textStyle="bold" />-->
+
+                <TextView
+                    android:layout_width="@dimen/btn_width"
+                    android:layout_height="@dimen/tf_height_30"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:fontFamily="@font/droidsans"
+                    android:paddingTop="10dp"
+                    android:text="Don't have an account yet?"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/sub_header_text_small"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_btn_sign_up"
+                    android:layout_width="@dimen/btn_width"
+                    android:layout_height="@dimen/tf_height_30"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.1"
+                    android:fontFamily="@font/droidsans"
+                    android:text="Register"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/sub_header_text"
+                    android:textStyle="bold" />
+
+                <!--                <LinearLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="0dp"-->
+                <!--                    android:layout_weight="0.1"-->
+                <!--                    android:orientation="vertical"></LinearLayout>-->
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:background="@drawable/round_bottom_bk">
+
+            <TextView
+                android:id="@+id/tv_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="1dp"
+                android:fontFamily="@font/droidsans"
+                android:padding="@dimen/universal_ui_padding_10"
+                android:text="Version 1.0"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/sub_header_text" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

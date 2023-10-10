@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registrations">
+
+    <LinearLayout
+        android:id="@+id/layout_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Sign Up"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/main_header_text"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/first_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:background="@drawable/signin_box"
+            android:fontFamily="@font/droidsans"
+            android:hint="@string/first_name"
+            android:inputType="textCapCharacters"
+            android:paddingLeft="20dp"
+            android:textAllCaps="true" />
+
+        <EditText
+            android:id="@+id/last_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:background="@drawable/signin_box"
+            android:fontFamily="@font/droidsans"
+            android:hint="@string/last_name"
+            android:inputType="textCapCharacters"
+            android:paddingLeft="20dp"
+            android:textAllCaps="true" />
+
+        <EditText
+            android:id="@+id/nic"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:background="@drawable/signin_box"
+            android:fontFamily="@font/droidsans"
+            android:hint="@string/nic"
+            android:inputType="textCapCharacters"
+            android:paddingLeft="20dp"
+            android:textAllCaps="true" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:background="@drawable/signin_box"
+            android:fontFamily="@font/droidsans"
+            android:hint="@string/email"
+            android:inputType="textCapCharacters"
+            android:paddingLeft="20dp"
+            android:textAllCaps="true" />
+
+        <EditText
+            android:id="@+id/mobile"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:background="@drawable/signin_box"
+            android:fontFamily="@font/droidsans"
+            android:hint="@string/mobile"
+            android:inputType="textCapCharacters"
+            android:paddingLeft="20dp"
+            android:textAllCaps="true" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:background="@drawable/signin_box"
+            android:fontFamily="@font/droidsans"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:textAllCaps="true" />
+
+        <EditText
+            android:id="@+id/con_password"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:background="@drawable/signin_box"
+            android:fontFamily="@font/droidsans"
+            android:hint="@string/con_password"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:textAllCaps="true" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/const_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/universal_ui_padding_10"
+            android:clickable="true"
+            android:hapticFeedbackEnabled="true">
+
+            <TextView
+                android:id="@+id/btn_width"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="11dp"
+                android:fontFamily="@font/droidsans"
+                android:paddingHorizontal="100dp"
+                android:text="@string/sign_up"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/header_text"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lotiie_signIn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/btn_width"
+                app:layout_constraintStart_toStartOf="@+id/btn_width"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/btn_1"
+                app:lottie_speed=".3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
