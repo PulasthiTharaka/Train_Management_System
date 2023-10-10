@@ -13,11 +13,15 @@ import retrofit2.http.Query;
 public interface API {
 
     @GET("User")
-    Call<JsonObject> getLogin(@Query("nic") String nic, @Query("passowrd") String passowrd);
+    Call<JsonObject> getAllUsers();
 
     @Headers("Content-Type: application/json")
     @POST("User/login")
     Call<JsonObject> login(@Body JsonObject jsonObject);
+
+    @Headers("Content-Type: application/json")
+    @POST("User/register")
+    Call<JsonObject> register(@Body JsonObject jsonObject);
 
     @GET("Booking")
     Call<JsonArray> getBookings();

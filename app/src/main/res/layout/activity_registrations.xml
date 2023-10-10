@@ -132,7 +132,8 @@
             android:hint="@string/con_password"
             android:inputType="textPassword"
             android:paddingLeft="20dp"
-            android:textAllCaps="true" />
+            android:textAllCaps="true"
+            />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/const_signup"
