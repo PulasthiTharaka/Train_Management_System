@@ -25,6 +25,6 @@ public class Methods {
 
     public static String getBaseURL() {
 
-        return "http://172.16.17.108:80/api/";
+        return "http://192.168.8.197:80/api/";
     }
 }

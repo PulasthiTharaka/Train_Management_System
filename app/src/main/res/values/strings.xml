@@ -2,6 +2,7 @@
     <string name="app_name">Go Rail</string>
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Register</string>
+    <string name="update">Update</string>
     <string name="user_name">    NIC</string>
     <string name="first_name">    First Name</string>
     <string name="last_name">    Last Name</string>
@@ -11,4 +12,11 @@
     <string name="password">    Password</string>
     <string name="con_password">    Confirm Password</string>
     <string name="login">login</string>
+
+    <string name="customer_name">My Name</string>
+    <string name="train">Train Name</string>
+    <string name="bookingDate">Booking Date</string>
+    <string name="ticket">No of Tickets</string>
+    <string name="reservationDate">Reservation Date</string>
+
 </resources>

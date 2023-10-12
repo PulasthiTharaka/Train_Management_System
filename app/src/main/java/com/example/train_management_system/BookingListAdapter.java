@@ -1,10 +1,13 @@
 package com.example.train_management_system;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.train_management_system.Models.Booking;
@@ -41,16 +44,38 @@ public class BookingListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
+        //if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.list_item_booking, parent, false);
-        }
+        //}
 
-        TextView bookNameTextView = convertView.findViewById(R.id.bookingNameTextView);
+        TextView bookTrain = convertView.findViewById(R.id.bookingTrain);
+        TextView bookDate = convertView.findViewById(R.id.bookingDate);
+        TextView bookTicket = convertView.findViewById(R.id.bookingTicket);
+        TextView reservationDate = convertView.findViewById(R.id.reservationDate);
+
+        TextView View_btn = convertView.findViewById(R.id.View_btn);
 
         Booking booking = BookingList.get(position);
 
         // Customize how you display the booking data in the ListView
-        bookNameTextView.setText(booking.getName() + " " + booking.getTrainname());
+        bookTrain.setText(booking.getTrainname());
+        bookDate.setText("Booking Date - "+booking.getBookingdate());
+        bookTicket.setText("Tickets - "+booking.getNooftickets());
+        reservationDate.setText("Reservation Date - "+booking.getReservationdate());
+        View_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, SingleBookingActivity.class);
+                intent.putExtra("trainName", booking.getTrainname());
+                intent.putExtra("bookingDate", booking.getBookingdate());
+                intent.putExtra("tickets", booking.getNooftickets());
+                intent.putExtra("reservationDate", booking.getReservationdate());
+                intent.putExtra("name", booking.getName());
+                intent.putExtra("nic", booking.getNic());
+
+                context.startActivity(intent);
+            }
+        });
 
         return convertView;
     }
