@@ -18,7 +18,7 @@
         android:weightSum="1">
 
         <TextView
-            android:id="@+id/singleBookingName"
+            android:id="@+id/editFirstName"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
@@ -27,14 +27,14 @@
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
             android:fontFamily="@font/droidsans"
-            android:hint="@string/customer_name"
+            android:hint="@string/first_name"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
             android:paddingTop="25dp"
             android:textAllCaps="true" />
 
         <TextView
-            android:id="@+id/singleBookingTrain"
+            android:id="@+id/editLastName"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
@@ -43,62 +43,14 @@
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
             android:fontFamily="@font/droidsans"
-            android:hint="@string/train"
+            android:hint="@string/last_name"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
             android:paddingTop="25dp"
             android:textAllCaps="true" />
 
         <TextView
-            android:id="@+id/singleBookingDate"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="50dp"
-            android:layout_weight="0.1"
-            android:background="@drawable/signin_box"
-            android:fontFamily="@font/droidsans"
-            android:hint="@string/bookingDate"
-            android:inputType="textCapCharacters"
-            android:paddingLeft="20dp"
-            android:paddingTop="25dp"
-            android:textAllCaps="true" />
-
-        <EditText
-            android:id="@+id/singleBookingTickets"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="50dp"
-            android:layout_weight="0.1"
-            android:background="@drawable/signin_box"
-            android:fontFamily="@font/droidsans"
-            android:hint="@string/ticket"
-            android:inputType="number"
-            android:paddingLeft="20dp"
-            android:textAllCaps="true"
-            android:textSize="15dp" />
-
-        <TextView
-            android:id="@+id/singleBookingReservationDate"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="50dp"
-            android:layout_weight="0.1"
-            android:background="@drawable/signin_box"
-            android:fontFamily="@font/droidsans"
-            android:hint="@string/reservationDate"
-            android:inputType="textCapCharacters"
-            android:paddingLeft="20dp"
-            android:paddingTop="25dp"
-            android:textAllCaps="true" />
-
-        <TextView
-            android:id="@+id/singleBookingNic"
+            android:id="@+id/editNIC"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
@@ -108,6 +60,38 @@
             android:background="@drawable/signin_box"
             android:fontFamily="@font/droidsans"
             android:hint="@string/nic"
+            android:inputType="textCapCharacters"
+            android:paddingLeft="20dp"
+            android:paddingTop="25dp"
+            android:textAllCaps="true" />
+
+        <EditText
+            android:id="@+id/editEmail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:background="@drawable/signin_box"
+            android:fontFamily="@font/droidsans"
+            android:hint="@string/email"
+            android:inputType="number"
+            android:paddingLeft="20dp"
+            android:textAllCaps="true"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/editMobile"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:background="@drawable/signin_box"
+            android:fontFamily="@font/droidsans"
+            android:hint="@string/mobile"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
             android:paddingTop="25dp"
@@ -124,7 +108,7 @@
             android:paddingTop="10dp"
             android:text="@string/update"
             android:textColor="@color/colorWhite"
-            android:textSize="14sp" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 
@@ -144,14 +128,15 @@
         android:id="@+id/frameLayout"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        tools:layout_editor_absoluteX="110dp"
-        tools:layout_editor_absoluteY="36dp">
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="40dp">
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/user" />
+            app:srcCompat="@drawable/user"
+            android:layout_gravity="center"/>
 
         <View
             android:layout_width="match_parent"
