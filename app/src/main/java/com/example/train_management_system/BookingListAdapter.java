@@ -59,9 +59,9 @@ public class BookingListAdapter extends BaseAdapter {
 
         // Customize how you display the booking data in the ListView
         bookTrain.setText(booking.getTrainname());
-        bookDate.setText("Booking Date - "+booking.getBookingdate());
+        bookDate.setText("Booked Date - "+booking.getBookingdate());
         bookTicket.setText("Tickets - "+booking.getNooftickets());
-        reservationDate.setText("Reservation Date - "+booking.getReservationdate());
+        reservationDate.setText("Reserve Date - "+booking.getReservationdate());
         View_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
