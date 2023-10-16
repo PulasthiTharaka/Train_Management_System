@@ -58,12 +58,25 @@
                 android:paddingBottom="40dp"
                 android:weightSum="1">
 
+                <TextView
+                    android:id="@+id/et_nic_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_weight="0.1"
+                    android:fontFamily="@font/droidsans"
+                    android:text="Enter NIC"
+                    android:textColor="#000000"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_nic"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/slider_tiny_height"
+                    android:layout_height="@dimen/input_field_height"
                     android:layout_marginLeft="50dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginRight="50dp"
                     android:layout_weight="0.2"
                     android:background="@drawable/signin_box"
@@ -79,12 +92,26 @@
                     android:layout_weight="0.1"
                     android:orientation="vertical"></LinearLayout>
 
+                <TextView
+                    android:id="@+id/et_password_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.1"
+                    android:fontFamily="@font/droidsans"
+                    android:text="Enter Password"
+                    android:textColor="#000000"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/et_password"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/slider_tiny_height"
+                    android:layout_height="@dimen/input_field_height"
                     android:layout_marginLeft="50dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginRight="50dp"
                     android:layout_weight="0.2"
                     android:background="@drawable/signin_box"
