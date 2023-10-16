@@ -38,11 +38,25 @@
             app:layout_constraintBottom_toTopOf="@+id/materialCardView3" />
 
         <TextView
+            android:id="@+id/res_date_label"
+            android:layout_width="match_parent"
+            android:layout_height="13dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Enter Reservation Date"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/singleBookingDateReservation"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
@@ -54,9 +68,8 @@
             android:inputType="textCapCharacters"
             android:onClick="showDatePicker_Reservation"
             android:paddingLeft="20dp"
-            android:paddingTop="25dp"
-            android:textSize="15dp"
-            android:textAllCaps="true" />
+            android:paddingTop="18dp"
+            android:textSize="15dp" />
 
 
 <!--        <EditText-->
@@ -75,12 +88,26 @@
 <!--            android:textAllCaps="true"-->
 <!--            android:textSize="15dp" />-->
 
+        <TextView
+            android:id="@+id/item_label"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Trains Available"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
         <Spinner
             android:id="@+id/trainNameSpinner"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
@@ -130,12 +157,26 @@
 <!--            android:paddingTop="25dp"-->
 <!--            android:textAllCaps="true" />-->
 
+        <TextView
+            android:id="@+id/no_of_tickets_label"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Enter No of tickets"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        
         <EditText
             android:id="@+id/singleBookingTickets"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
