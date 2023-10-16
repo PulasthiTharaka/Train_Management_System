@@ -184,7 +184,6 @@
             android:hint="@string/ticket"
             android:inputType="number"
             android:paddingLeft="20dp"
-            android:textAllCaps="true"
             android:textSize="15dp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout

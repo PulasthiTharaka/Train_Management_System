@@ -43,8 +43,7 @@
             android:fontFamily="@font/droidsans"
             android:hint="@string/first_name"
             android:inputType="textCapCharacters"
-            android:paddingLeft="20dp"
-            android:textAllCaps="true" />
+            android:paddingLeft="20dp"/>
 
         <TextView
             android:id="@+id/l_name_label"
@@ -73,8 +72,7 @@
             android:fontFamily="@font/droidsans"
             android:hint="@string/last_name"
             android:inputType="textCapCharacters"
-            android:paddingLeft="20dp"
-            android:textAllCaps="true" />
+            android:paddingLeft="20dp"/>
 
         <TextView
             android:id="@+id/edit_nic_label"
@@ -134,7 +132,6 @@
             android:hint="@string/email"
             android:inputType="number"
             android:paddingLeft="20dp"
-            android:textAllCaps="true"
             android:textSize="15dp" />
 
         <TextView
@@ -162,7 +159,7 @@
             android:background="@drawable/signin_box"
             android:fontFamily="@font/droidsans"
             android:hint="@string/mobile"
-            android:inputType="textCapCharacters"
+            android:inputType="phone"
             android:paddingLeft="20dp" />
 
         <LinearLayout

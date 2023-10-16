@@ -140,6 +140,12 @@ public class Profile extends AppCompatActivity {
                                         .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                             @Override
                                             public void onClick(SweetAlertDialog sDialog) {
+
+                                                MyDatabaseHelper dbHelper = new MyDatabaseHelper(context, null, null, 0);
+                                                SQLiteDatabase db = dbHelper.getReadableDatabase();
+                                                dbHelper.updateUser(finalNic, FirstName, LastName, Email, Mobile);
+                                                db.close();
+
                                                 Intent intent = new Intent(Profile.this, Dashboard.class);
                                                 startActivity(intent);
                                             }
@@ -167,6 +173,12 @@ public class Profile extends AppCompatActivity {
                                     .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                         @Override
                                         public void onClick(SweetAlertDialog sDialog) {
+
+                                            MyDatabaseHelper dbHelper = new MyDatabaseHelper(context, null, null, 0);
+                                            SQLiteDatabase db = dbHelper.getReadableDatabase();
+                                            dbHelper.updateUser(finalNic, FirstName, LastName, Email, Mobile);
+                                            db.close();
+
                                             Intent intent = new Intent(Profile.this, Dashboard.class);
                                             startActivity(intent);
                                         }
@@ -178,6 +190,10 @@ public class Profile extends AppCompatActivity {
 
             }
         });
+        String finalFname = fname;
+        String finalLname = lname;
+        String finalPhone_no = phone_no;
+        String finalEmail = email;
         buttonDelete.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -186,6 +202,10 @@ public class Profile extends AppCompatActivity {
                 profile.addProperty("nic", finalNic);
                 profile.addProperty("status", "inactive");
                 profile.addProperty("role", "traveller");
+                profile.addProperty("fname", finalFname);
+                profile.addProperty("lname", finalLname);
+                profile.addProperty("phone_no", finalPhone_no);
+                profile.addProperty("email", finalEmail);
 
                 Call<JsonObject> call = RetrofitInstance
                         .get()
