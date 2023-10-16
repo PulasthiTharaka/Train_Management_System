@@ -38,4 +38,8 @@ public interface API {
     @PUT("Booking/update")
     Call<JsonObject> updateBooking(@Body JsonObject userUpdateData);
 
+    @Headers("Content-Type: application/json")
+    @PUT("User/update")
+    Call<JsonObject> updateUser(@Body JsonObject userUpdateData);
+
 }

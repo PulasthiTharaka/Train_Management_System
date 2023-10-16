@@ -13,16 +13,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="200dp"
+        android:paddingTop="170dp"
         android:paddingBottom="20dp"
-        android:weightSum="1">
+        android:weightSum="1.4">
 
         <TextView
             android:id="@+id/f_name_label"
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:fontFamily="@font/droidsans"
@@ -166,19 +165,44 @@
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp" />
 
-        <TextView
-            android:id="@+id/View_btn"
-            android:layout_width="180dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rount_button"
-            android:paddingLeft="55dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="@string/update"
-            android:textColor="@color/colorWhite"
-            android:textSize="20sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:weightSum="1"
+            android:layout_weight="0.4"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/View_btn"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_weight="0.5"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rount_button"
+                android:text="@string/update"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:textColor="@color/colorWhite"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/delete_btn"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_weight="0.5"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/rount_button"
+                android:gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:text="@string/delete"
+                android:textColor="@color/colorWhite"
+                android:textSize="18dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -200,22 +224,22 @@
         android:id="@+id/frameLayout"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        tools:layout_editor_absoluteX="120dp"
-        tools:layout_editor_absoluteY="40dp"
-        tools:ignore="MissingConstraints"
-        android:layout_gravity="center" >
+        android:layout_gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/layout_1">
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/user_bsn"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/user_bsn" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/white_border"/>
+            android:background="@drawable/white_border" />
     </FrameLayout>
 
 
