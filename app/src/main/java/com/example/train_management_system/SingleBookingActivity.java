@@ -63,7 +63,13 @@ public class SingleBookingActivity extends AppCompatActivity {
                             .setTitleText("Error")
                             .setContentText("Fields cannot be blank!")
                             .show();
-                } else {
+                }
+                else if(Integer.parseInt(ticketCount)<5){
+                    new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Error")
+                            .setContentText("Cannot book more than 04 tickets!")
+                            .show();
+                }else{
                     JsonObject booking = new JsonObject();
                     booking.addProperty("nic", nic);
                     booking.addProperty("trainname", trainName);
