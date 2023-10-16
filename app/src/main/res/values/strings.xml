@@ -13,6 +13,9 @@
     <string name="password">    Password</string>
     <string name="con_password">    Confirm Password</string>
     <string name="login">login</string>
+    <string name="signOut">Sign Out</string>
+    <string name="profile">Profile</string>
+    <string name="booking">Add</string>
 
     <string name="customer_name">My Name</string>
     <string name="train">Train Name</string>

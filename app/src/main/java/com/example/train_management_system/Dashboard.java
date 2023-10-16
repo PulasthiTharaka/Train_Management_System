@@ -1,6 +1,7 @@
 package com.example.train_management_system;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,11 +9,15 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.train_management_system.API.API;
 import com.example.train_management_system.API.RetrofitInstance;
+import com.example.train_management_system.Helpers.MenuHandler;
 import com.example.train_management_system.Helpers.MyDatabaseHelper;
 import com.example.train_management_system.Models.Booking;
 import com.example.train_management_system.Models.User;
@@ -35,11 +40,16 @@ public class Dashboard extends AppCompatActivity {
     private BookingListAdapter bookingListAdapter;
     private List<Booking> bookingList;
     Context context = this;
+    private MenuHandler menuHandler;
+
+    public ConstraintLayout booking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        menuHandler = new MenuHandler(this);
+        initComponents();
 
         // Initialize your ListView and adapter
         bookingListView = findViewById(R.id.bookingListView);
@@ -52,15 +62,12 @@ public class Dashboard extends AppCompatActivity {
         call.enqueue(new Callback<JsonArray>() {
             @Override
             public void onResponse(Call<JsonArray> call, Response<JsonArray> response) {
-                Log.d("Dataset2", String.valueOf(response));
-                Log.d("Dataset3", String.valueOf(response.code()));
                 if (response.isSuccessful() && response.code() == 200) {
                     JsonArray jsonArray = response.body();
                     Log.d("Dataset", String.valueOf(jsonArray));
                     if (jsonArray != null) {
                         Gson gson = new Gson();
                         //Booking booking = gson.fromJson(jsonArray.toString(), Booking.class);
-
 
                         Type bookingListType = new TypeToken<List<Booking>>() {}.getType();
                         List<Booking> bookingList = gson.fromJson(jsonArray, bookingListType);
@@ -86,5 +93,28 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menuHandler.onCreateOptionsMenu(menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return menuHandler.onOptionsItemSelected(item);
+    }
+
+    private void initComponents() {
+
+        booking = findViewById(R.id.const_booking);
+        booking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashboard.this, AddBooking.class);
+                startActivity(intent);
+            }
+        });
     }
 }

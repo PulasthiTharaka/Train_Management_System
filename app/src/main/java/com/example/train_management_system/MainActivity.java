@@ -16,12 +16,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.train_management_system.API.API;
 import com.example.train_management_system.API.RetrofitInstance;
+import com.example.train_management_system.Helpers.MenuHandler;
 import com.example.train_management_system.Helpers.MyDatabaseHelper;
 import com.example.train_management_system.Methods;
 import com.example.train_management_system.Models.User;
@@ -36,15 +39,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
+
 public class MainActivity extends AppCompatActivity {
 
     TextView registration;
     EditText nic, password;
-
     Context context = this;
-
-
+    public Menu menu;
     public ConstraintLayout signIn;
+
+    private MenuHandler menuHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         //setContentView(R.layout.opening_screen);
         initComponents();
     }
+
 
     private void initComponents() {
 

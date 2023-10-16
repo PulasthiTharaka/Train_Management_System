@@ -120,7 +120,9 @@
         android:background="@drawable/round_bottom_bk"
         android:rotation="180"
         tools:layout_editor_absoluteX="-5dp"
-        tools:layout_editor_absoluteY="-2dp">
+        tools:layout_editor_absoluteY="-2dp"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
 
     </LinearLayout>
 
@@ -129,7 +131,8 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         tools:layout_editor_absoluteX="120dp"
-        tools:layout_editor_absoluteY="40dp">
+        tools:layout_editor_absoluteY="40dp"
+        tools:ignore="MissingConstraints">
 
         <ImageView
             android:id="@+id/imageView3"
