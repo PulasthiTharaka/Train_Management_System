@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".Registrations">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:id="@+id/layout_1"
         android:layout_width="match_parent"
@@ -29,10 +33,24 @@
             android:textSize="@dimen/main_header_text"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/first_name_label"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Enter First Name"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/first_name"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_height="@dimen/input_field_height"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="50dp"
@@ -41,13 +59,26 @@
             android:fontFamily="@font/droidsans"
             android:hint="@string/first_name"
             android:inputType="textCapCharacters"
-            android:paddingLeft="20dp"
-            android:textAllCaps="true" />
+            android:paddingLeft="20dp" />
+
+        <TextView
+            android:id="@+id/last_name_label"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Enter Last Name"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/last_name"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_height="@dimen/input_field_height"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="50dp"
@@ -56,13 +87,26 @@
             android:fontFamily="@font/droidsans"
             android:hint="@string/last_name"
             android:inputType="textCapCharacters"
-            android:paddingLeft="20dp"
-            android:textAllCaps="true" />
+            android:paddingLeft="20dp" />
+
+        <TextView
+            android:id="@+id/nic_label"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Enter NIC"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/nic"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_height="@dimen/input_field_height"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="50dp"
@@ -74,10 +118,24 @@
             android:paddingLeft="20dp"
             android:textAllCaps="true" />
 
+        <TextView
+            android:id="@+id/email_label"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Enter Email"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_height="@dimen/input_field_height"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="50dp"
@@ -89,10 +147,24 @@
             android:paddingLeft="20dp"
             android:textAllCaps="true" />
 
+        <TextView
+            android:id="@+id/mobile_label"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Enter Mobile Number"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/mobile"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_height="@dimen/input_field_height"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="50dp"
@@ -104,10 +176,25 @@
             android:paddingLeft="20dp"
             android:textAllCaps="true" />
 
+        <TextView
+            android:id="@+id/password_label"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Enter Password"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_height="@dimen/input_field_height"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="50dp"
@@ -119,10 +206,24 @@
             android:paddingLeft="20dp"
             android:textAllCaps="true" />
 
+        <TextView
+            android:id="@+id/con_password_label"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Confirm Password"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/con_password"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_height="@dimen/input_field_height"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="50dp"
@@ -180,6 +281,6 @@
 
     </LinearLayout>
 
-
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
