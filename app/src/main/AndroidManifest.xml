@@ -27,6 +27,12 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".AddBooking"
+            android:exported="false" />
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
             android:name=".Loading"
             android:exported="true">
             <intent-filter>
