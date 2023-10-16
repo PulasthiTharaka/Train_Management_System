@@ -18,11 +18,25 @@
         android:weightSum="1">
 
         <TextView
+            android:id="@+id/f_name_label"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="First Name"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/editFirstName"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
@@ -30,15 +44,29 @@
             android:hint="@string/first_name"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="25dp"
+            android:paddingTop="20dp"
             android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/l_name_label"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Last Name"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/editLastName"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
@@ -46,15 +74,29 @@
             android:hint="@string/last_name"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="25dp"
+            android:paddingTop="20dp"
             android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/edit_nic_label"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="NIC"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/editNIC"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
@@ -62,15 +104,29 @@
             android:hint="@string/nic"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="25dp"
+            android:paddingTop="20dp"
             android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/edit_email_label"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Email"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
@@ -82,11 +138,25 @@
             android:textSize="15dp" />
 
         <TextView
+            android:id="@+id/edit_mobile_label"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Mobile"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/editMobile"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
@@ -94,7 +164,7 @@
             android:hint="@string/mobile"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="25dp"
+            android:paddingTop="20dp"
             android:textAllCaps="true" />
 
         <TextView
