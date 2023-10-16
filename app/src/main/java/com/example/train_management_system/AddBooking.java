@@ -87,6 +87,13 @@ public class AddBooking extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                List<String> trainNames = new ArrayList<>();
+                trainNames.add("Select Train Name");
+
+                ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(AddBooking.this, android.R.layout.simple_spinner_item, trainNames);
+                spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                trainNameSpinner.setAdapter(spinnerAdapter);
+
                 trainNameSpinner = findViewById(R.id.trainNameSpinner);
                 //singleBookingDateView = findViewById(R.id.singleBookingDate);
                 no_of_tickets = findViewById(R.id.singleBookingTickets);

@@ -86,9 +86,13 @@
             android:background="@drawable/signin_box"
             android:fontFamily="@font/droidsans"
             android:textSize="15dp"
+            android:textColor ="@color/colorBlack"
+            android:textColorSecondary ="@color/colorBlack"
+            android:textColorHint = "@color/colorBlack"
             android:hint="Select Train Name"
             android:paddingLeft="20dp"
-            android:textAllCaps="true" />
+            android:textAllCaps="true"
+            android:spinnerMode="dropdown"/>
 
         <!--        <TextView-->
         <!--            android:id="@+id/singleBookingDate"-->
