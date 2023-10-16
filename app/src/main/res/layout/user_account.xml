@@ -31,20 +31,20 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <TextView
+        <EditText
             android:id="@+id/editFirstName"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
+            android:layout_marginBottom="10dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
             android:fontFamily="@font/droidsans"
             android:hint="@string/first_name"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="20dp"
             android:textAllCaps="true" />
 
         <TextView
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:fontFamily="@font/droidsans"
@@ -61,20 +61,20 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <TextView
+        <EditText
             android:id="@+id/editLastName"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
+            android:layout_marginBottom="10dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
             android:fontFamily="@font/droidsans"
             android:hint="@string/last_name"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="20dp"
             android:textAllCaps="true" />
 
         <TextView
@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:fontFamily="@font/droidsans"
@@ -98,21 +98,21 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
+            android:layout_marginBottom="10dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
             android:fontFamily="@font/droidsans"
             android:hint="@string/nic"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="20dp"
-            android:textAllCaps="true" />
+            android:paddingTop="20dp" />
 
         <TextView
             android:id="@+id/edit_email_label"
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:fontFamily="@font/droidsans"
@@ -128,6 +128,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
+            android:layout_marginBottom="10dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
             android:fontFamily="@font/droidsans"
@@ -142,7 +143,7 @@
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:fontFamily="@font/droidsans"
@@ -151,7 +152,7 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <TextView
+        <EditText
             android:id="@+id/editMobile"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
@@ -163,9 +164,7 @@
             android:fontFamily="@font/droidsans"
             android:hint="@string/mobile"
             android:inputType="textCapCharacters"
-            android:paddingLeft="20dp"
-            android:paddingTop="20dp"
-            android:textAllCaps="true" />
+            android:paddingLeft="20dp" />
 
         <TextView
             android:id="@+id/View_btn"
@@ -174,11 +173,12 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:background="@drawable/rount_button"
-            android:paddingLeft="65dp"
+            android:paddingLeft="55dp"
             android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:text="@string/update"
             android:textColor="@color/colorWhite"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -202,7 +202,8 @@
         android:layout_height="150dp"
         tools:layout_editor_absoluteX="120dp"
         tools:layout_editor_absoluteY="40dp"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:layout_gravity="center" >
 
         <ImageView
             android:id="@+id/imageView3"
