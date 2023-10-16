@@ -64,7 +64,7 @@ public class SingleBookingActivity extends AppCompatActivity {
                             .setContentText("Fields cannot be blank!")
                             .show();
                 }
-                else if(Integer.parseInt(ticketCount)<5){
+                else if(Integer.parseInt(ticketCount)>4){
                     new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
                             .setTitleText("Error")
                             .setContentText("Cannot book more than 04 tickets!")
