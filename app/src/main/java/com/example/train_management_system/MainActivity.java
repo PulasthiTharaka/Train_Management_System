@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                                     SQLiteDatabase db = dbHelper.getWritableDatabase();
 
                                     ContentValues values = new ContentValues();
-                                    values.put("uid", user.getId());
+                                    //values.put("uid", user.getId());
                                     values.put("fname", user.getFname());
                                     values.put("lname", user.getLname());
                                     values.put("nic", user.getNic());
@@ -128,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
                                     values.put("email", user.getEmail());
 
                                     long newRowId = db.insert("users", null, values);
+                                    Log.d("UserData", String.valueOf(newRowId));
 
                                     // Close the database
                                     dbHelper.close();

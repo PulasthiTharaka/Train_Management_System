@@ -38,7 +38,7 @@
             app:layout_constraintBottom_toTopOf="@+id/materialCardView3" />
 
         <TextView
-            android:id="@+id/singleBookingTrain"
+            android:id="@+id/singleBookingDateReservation"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
@@ -46,11 +46,48 @@
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
+            android:clickable="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:fontFamily="@font/droidsans"
-            android:hint="@string/train"
+            android:hint="@string/reservationDate"
             android:inputType="textCapCharacters"
+            android:onClick="showDatePicker_Reservation"
             android:paddingLeft="20dp"
             android:paddingTop="25dp"
+            android:textSize="15dp"
+            android:textAllCaps="true" />
+
+
+<!--        <EditText-->
+<!--            android:id="@+id/singleBookingTrain"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/slider_tiny_height"-->
+<!--            android:layout_marginLeft="50dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginRight="50dp"-->
+<!--            android:layout_weight="0.1"-->
+<!--            android:background="@drawable/signin_box"-->
+<!--            android:fontFamily="@font/droidsans"-->
+<!--            android:hint="@string/train"-->
+<!--            android:inputType="textCapCharacters"-->
+<!--            android:paddingLeft="20dp"-->
+<!--            android:textAllCaps="true"-->
+<!--            android:textSize="15dp" />-->
+
+        <Spinner
+            android:id="@+id/trainNameSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:background="@drawable/signin_box"
+            android:fontFamily="@font/droidsans"
+            android:textSize="15dp"
+            android:hint="Select Train Name"
+            android:paddingLeft="20dp"
             android:textAllCaps="true" />
 
         <!--        <TextView-->
@@ -69,32 +106,32 @@
         <!--            android:paddingTop="25dp"-->
         <!--            android:textAllCaps="true" />-->
 
-        <TextView
-            android:id="@+id/singleBookingDate"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="50dp"
-            android:layout_weight="0.1"
-            android:background="@drawable/signin_box"
-            android:clickable="true"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:fontFamily="@font/droidsans"
-            android:hint="@string/bookingDate"
-            android:inputType="textCapCharacters"
-            android:onClick="showDatePicker"
-            android:paddingLeft="20dp"
-            android:paddingTop="25dp"
-            android:textAllCaps="true" />
+<!--        <TextView-->
+<!--            android:id="@+id/singleBookingDate"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/slider_tiny_height"-->
+<!--            android:layout_marginLeft="50dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginRight="50dp"-->
+<!--            android:layout_weight="0.1"-->
+<!--            android:background="@drawable/signin_box"-->
+<!--            android:clickable="true"-->
+<!--            android:focusable="false"-->
+<!--            android:focusableInTouchMode="false"-->
+<!--            android:fontFamily="@font/droidsans"-->
+<!--            android:hint="@string/bookingDate"-->
+<!--            android:inputType="textCapCharacters"-->
+<!--            android:onClick="showDatePicker"-->
+<!--            android:paddingLeft="20dp"-->
+<!--            android:paddingTop="25dp"-->
+<!--            android:textAllCaps="true" />-->
 
         <EditText
             android:id="@+id/singleBookingTickets"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
@@ -105,34 +142,49 @@
             android:textAllCaps="true"
             android:textSize="15dp" />
 
-        <TextView
-            android:id="@+id/singleBookingReservationDate"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="50dp"
-            android:layout_weight="0.1"
-            android:background="@drawable/signin_box"
-            android:fontFamily="@font/droidsans"
-            android:hint="@string/reservationDate"
-            android:inputType="textCapCharacters"
-            android:paddingLeft="20dp"
-            android:paddingTop="25dp"
-            android:textAllCaps="true" />
-
-        <TextView
-            android:id="@+id/add_btn"
-            android:layout_width="180dp"
-            android:layout_height="40dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/const_add"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginTop="40dp"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rount_button"
-            android:paddingLeft="75dp"
-            android:paddingTop="10dp"
-            android:text="@string/add"
-            android:textColor="@color/colorWhite"
-            android:textSize="14sp" />
+            android:layout_marginBottom="@dimen/universal_ui_padding_10"
+            android:clickable="true"
+            android:hapticFeedbackEnabled="true">
+
+            <TextView
+                android:id="@+id/btn_width"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="11dp"
+                android:fontFamily="@font/droidsans"
+                android:paddingHorizontal="100dp"
+                android:text="@string/booking"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/header_text"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lotiie_Booking"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/btn_width"
+                app:layout_constraintStart_toStartOf="@+id/btn_width"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/btn_1"
+                app:lottie_speed=".3" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </LinearLayout>
 

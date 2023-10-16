@@ -26,4 +26,11 @@ public interface API {
     @GET("Booking")
     Call<JsonArray> getBookings();
 
+    @GET("Train")
+    Call<JsonArray> getTrains();
+
+    @Headers("Content-Type: application/json")
+    @POST("Booking/addBooking")
+    Call<JsonObject> addBooking(@Body JsonObject jsonObject);
+
 }
