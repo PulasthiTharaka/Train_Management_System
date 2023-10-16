@@ -19,6 +19,7 @@ import android.widget.ListView;
 
 import com.example.train_management_system.API.API;
 import com.example.train_management_system.API.RetrofitInstance;
+import com.example.train_management_system.Helpers.GetUserData;
 import com.example.train_management_system.Helpers.MenuHandler;
 import com.example.train_management_system.Helpers.MyDatabaseHelper;
 import com.example.train_management_system.Models.Booking;
@@ -28,7 +29,10 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONArray;
+
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -68,17 +72,38 @@ public class Dashboard extends AppCompatActivity {
             public void onResponse(Call<JsonArray> call, Response<JsonArray> response) {
                 if (response.isSuccessful() && response.code() == 200) {
                     JsonArray jsonArray = response.body();
-                    Log.d("Dataset", String.valueOf(jsonArray));
+
                     if (jsonArray != null) {
                         Gson gson = new Gson();
                         //Booking booking = gson.fromJson(jsonArray.toString(), Booking.class);
 
+                        GetUserData getUserData = new GetUserData(context);
+                        List<User> userList = getUserData.GetUser();
+
+                        String nic="";
+                        String name ="";
+
+                        for (User user : userList) {
+                            nic = user.getNic();
+                            name = user.getFname() + " " + user.getLname();
+                        }
+
+                        Log.d("Nic", nic);
+                        Log.d("Json Data", String.valueOf(jsonArray));
+
                         Type bookingListType = new TypeToken<List<Booking>>() {}.getType();
                         List<Booking> bookingList = gson.fromJson(jsonArray, bookingListType);
-                        bookingListAdapter = new BookingListAdapter(context, bookingList);
-                        Log.d("Dataset", String.valueOf(bookingList));
 
-                        // Set the adapter to the ListView
+                        // Create a filtered list to store the matching bookings
+                        List<Booking> filteredList = new ArrayList<>();
+
+                        for (Booking booking : bookingList) {
+                            if (booking.getNic().equals(nic)) {
+                                filteredList.add(booking);
+                            }
+                        }
+
+                        bookingListAdapter = new BookingListAdapter(context, filteredList);
                         bookingListView.setAdapter(bookingListAdapter);
                     }
                 } else {
