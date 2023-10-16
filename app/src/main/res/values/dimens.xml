@@ -69,6 +69,6 @@
     <dimen name="offset">10dp</dimen>
     <dimen name="rv_height">400dp</dimen>
     <dimen name="btn_width">250dp</dimen>
-
+    <dimen name="input_field_height">55dp</dimen>
 
 </resources>

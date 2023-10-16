@@ -52,7 +52,7 @@
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:fontFamily="@font/droidsans"
-            android:text="Enter Name"
+            android:text="Name"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -60,7 +60,7 @@
         <TextView
             android:id="@+id/singleBookingName"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_height="@dimen/input_field_height"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
@@ -70,7 +70,7 @@
             android:hint="@string/customer_name"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="10dp" />
+            android:paddingTop="20dp" />
 
         <TextView
             android:id="@+id/singleBookingTrainLabel"
@@ -81,7 +81,7 @@
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:fontFamily="@font/droidsans"
-            android:text="Enter Train Name"
+            android:text="Train Name"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -90,7 +90,7 @@
         <TextView
             android:id="@+id/singleBookingTrain"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_height="@dimen/input_field_height"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="1dp"
             android:layout_marginRight="50dp"
@@ -100,7 +100,7 @@
             android:hint="@string/train"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="10dp" />
+            android:paddingTop="20dp" />
 
         <TextView
             android:id="@+id/singleBookingDateLabel"
@@ -111,7 +111,7 @@
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:fontFamily="@font/droidsans"
-            android:text="Enter Booking Date"
+            android:text="Booking Date"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -119,7 +119,7 @@
         <TextView
             android:id="@+id/singleBookingDate"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_height="@dimen/input_field_height"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="1dp"
             android:layout_marginRight="50dp"
@@ -129,7 +129,7 @@
             android:hint="@string/bookingDate"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="10dp" />
+            android:paddingTop="20dp" />
 
         <TextView
             android:id="@+id/singleBookingTicketsLabel"
@@ -140,7 +140,7 @@
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:fontFamily="@font/droidsans"
-            android:text="Enter No of Tickets"
+            android:text="No of Tickets"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -148,7 +148,7 @@
         <EditText
             android:id="@+id/singleBookingTickets"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_height="@dimen/input_field_height"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="1dp"
             android:layout_marginRight="50dp"
@@ -169,7 +169,7 @@
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:fontFamily="@font/droidsans"
-            android:text="Enter Reservation Date"
+            android:text="Reservation Date"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -177,7 +177,7 @@
         <TextView
             android:id="@+id/singleBookingReservationDate"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_height="@dimen/input_field_height"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="1dp"
             android:layout_marginRight="50dp"
@@ -187,7 +187,7 @@
             android:hint="@string/reservationDate"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="10dp" />
+            android:paddingTop="20dp" />
 
         <TextView
             android:id="@+id/singleBookingNicLabel"
@@ -198,7 +198,7 @@
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:fontFamily="@font/droidsans"
-            android:text="Enter NIC"
+            android:text="NIC"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -206,7 +206,7 @@
         <TextView
             android:id="@+id/singleBookingNic"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/slider_tiny_height"
+            android:layout_height="@dimen/input_field_height"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="1dp"
             android:layout_marginRight="50dp"
@@ -216,7 +216,7 @@
             android:hint="@string/nic"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="10dp" />
+            android:paddingTop="20dp" />
 
         <TextView
             android:id="@+id/View_btn"
