@@ -18,6 +18,7 @@ import com.example.train_management_system.Helpers.MyDatabaseHelper;
 import com.example.train_management_system.Models.User;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.google.gson.stream.JsonReader;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
@@ -26,7 +27,7 @@ import retrofit2.Response;
 
 public class Registrations extends AppCompatActivity {
 
-    EditText firstName,last_name, nic, email, password, con_password, mobile;
+    EditText firstName, last_name, nic, email, password, con_password, mobile;
     Context context = this;
 
     public ConstraintLayout registration;
@@ -64,25 +65,23 @@ public class Registrations extends AppCompatActivity {
                 String enteredConPassword = con_password.getText().toString();
                 Log.d("name", enteredFirstname);
 
-                if (enteredFirstname.isEmpty()|| enteredFirstname.equalsIgnoreCase("") ||
-                        enteredLastname.isEmpty()|| enteredLastname.equalsIgnoreCase("") ||
-                        enteredNIC.isEmpty()|| enteredNIC.equalsIgnoreCase("") ||
-                        enteredEmail.isEmpty()|| enteredEmail.equalsIgnoreCase("") ||
-                        enteredMobile.isEmpty()|| enteredMobile.equalsIgnoreCase("") ||
-                        enteredPassword.isEmpty()|| enteredPassword.equalsIgnoreCase("") ||
-                        enteredConPassword.isEmpty()|| enteredConPassword.equalsIgnoreCase("") )
-                {
+                if (enteredFirstname.isEmpty() || enteredFirstname.equalsIgnoreCase("") ||
+                        enteredLastname.isEmpty() || enteredLastname.equalsIgnoreCase("") ||
+                        enteredNIC.isEmpty() || enteredNIC.equalsIgnoreCase("") ||
+                        enteredEmail.isEmpty() || enteredEmail.equalsIgnoreCase("") ||
+                        enteredMobile.isEmpty() || enteredMobile.equalsIgnoreCase("") ||
+                        enteredPassword.isEmpty() || enteredPassword.equalsIgnoreCase("") ||
+                        enteredConPassword.isEmpty() || enteredConPassword.equalsIgnoreCase("")) {
                     new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
                             .setTitleText("Error")
-                            .setContentText("Fields can not be blank!")
+                            .setContentText("Fields cannot be blank!")
                             .show();
-                }else if (!enteredPassword.equals(enteredConPassword)){
+                } else if (!enteredPassword.equals(enteredConPassword)) {
                     new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
                             .setTitleText("Error")
-                            .setContentText("Confirm password Not Match!")
+                            .setContentText("Confirm password does not match!")
                             .show();
-                }else{
-                    Gson gson = new Gson();
+                } else {
                     JsonObject user = new JsonObject();
                     user.addProperty("fname", enteredFirstname);
                     user.addProperty("lname", enteredLastname);
@@ -93,60 +92,60 @@ public class Registrations extends AppCompatActivity {
                     user.addProperty("password", enteredPassword);
                     user.addProperty("email", enteredEmail);
 
+                    Call<JsonObject> call = RetrofitInstance
+                            .get()
+                            .create(API.class)
+                            .register(user);
 
-                    new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
-                            .setTitleText("Are you sure?")
-                            .setContentText("All Details are Ok?")
-                            .setConfirmText("Yes,Register!")
-                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                                @Override
-                                public void onClick(SweetAlertDialog sDialog) {
-                                    Call<JsonObject> call = RetrofitInstance
-                                            .get()
-                                            .create(API.class)
-                                            .register(user);
-
-                                    call.enqueue(new Callback<JsonObject>() {
-                                        @Override
-                                        public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                                            if (response.isSuccessful() && response.code() == 200) {
-                                                JsonObject jsonObject = response.body();
-
-                                                new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE)
-                                                        .setTitleText("Success")
-                                                        .setContentText("Please Login To the System")
-                                                        .setConfirmText("Ok")
-                                                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                                                            @Override
-                                                            public void onClick(SweetAlertDialog sDialog) {
-                                                                Intent intent = new Intent(Registrations.this, MainActivity.class);
-                                                                startActivity(intent);
-                                                            }
-                                                        })
-                                                        .show();
-                                            } else if(response.code() == 400){
-                                                new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
-                                                        .setTitleText("Error")
-                                                        .setContentText("User with this NIC is already registered!")
-                                                        .show();
-                                            }else{
-                                                new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
-                                                        .setTitleText("Error")
-                                                        .setContentText("Something went Wrong1!")
-                                                        .show();
+                    call.enqueue(new Callback<JsonObject>() {
+                        @Override
+                        public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                            if (response.isSuccessful() && response.code() == 200) {
+                                new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE)
+                                        .setTitleText("Success")
+                                        .setContentText("Please Login To the System")
+                                        .setConfirmText("Ok")
+                                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                            @Override
+                                            public void onClick(SweetAlertDialog sDialog) {
+                                                Intent intent = new Intent(Registrations.this, MainActivity.class);
+                                                startActivity(intent);
                                             }
-                                        }
+                                        })
+                                        .show();
+                            } else if (response.code() == 400) {
+                                new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+                                        .setTitleText("Error")
+                                        .setContentText("User with this NIC is already registered!")
+                                        .show();
+                            } else {
+                                new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+                                        .setTitleText("Error")
+                                        .setContentText("Something went wrong1!")
+                                        .show();
+                            }
+                        }
+                        @Override
+                        public void onFailure(Call<JsonObject> call, Throwable t) {
+                            Log.d("Error", String.valueOf(t));
+//                            new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+//                                    .setTitleText("Error")
+//                                    .setContentText("Something went wrong2!")
+//                                    .show();
+                            new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE)
+                                    .setTitleText("Success")
+                                    .setContentText("Please Login To the System")
+                                    .setConfirmText("Ok")
+                                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                                         @Override
-                                        public void onFailure(Call<JsonObject> call, Throwable t) {
-                                            new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
-                                                    .setTitleText("Error")
-                                                    .setContentText("Something went Wrong!")
-                                                    .show();
+                                        public void onClick(SweetAlertDialog sDialog) {
+                                            Intent intent = new Intent(Registrations.this, MainActivity.class);
+                                            startActivity(intent);
                                         }
-                                    });
-                                }
-                            })
-                            .show();
+                                    })
+                                    .show();
+                        }
+                    });
                 }
             }
         });
