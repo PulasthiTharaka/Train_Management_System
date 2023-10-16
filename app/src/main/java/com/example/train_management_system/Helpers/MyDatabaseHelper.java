@@ -1,5 +1,6 @@
 package com.example.train_management_system.Helpers;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
@@ -64,6 +65,19 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.close();
 
         return rowCount > 0;
+    }
+
+    public void updateUser(String nic, String firstName, String lastName, String email, String mobile) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("fname", firstName);
+        values.put("lname", lastName);
+        values.put("email", email);
+        values.put("phone_no", mobile);
+
+        db.update("users", values, "nic = ?", new String[] { nic });
+        db.close();
     }
 
 }

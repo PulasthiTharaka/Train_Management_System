@@ -4,14 +4,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.train_management_system.API.API;
 import com.example.train_management_system.API.RetrofitInstance;
+import com.example.train_management_system.Helpers.MenuHandler;
 import com.example.train_management_system.Models.Booking;
 import com.google.gson.JsonObject;
 
@@ -23,10 +27,14 @@ import retrofit2.Response;
 public class SingleBookingActivity extends AppCompatActivity {
 
     Context context = this;
+    private MenuHandler menuHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        menuHandler = new MenuHandler(this);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_single_booking);
 
         Intent intent = getIntent();
@@ -133,7 +141,20 @@ public class SingleBookingActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menuHandler.onCreateOptionsMenu(menu);
+        return true;
+    }
 
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return menuHandler.onOptionsItemSelected(item);
     }
 }

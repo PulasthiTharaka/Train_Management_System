@@ -26,6 +26,7 @@ import java.util.Locale;
 import android.app.DatePickerDialog;
 import android.widget.DatePicker;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -71,6 +72,8 @@ public class AddBooking extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.booking_add);
         menuHandler = new MenuHandler(this);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         trainNameSpinner = findViewById(R.id.trainNameSpinner);
         initComponents();
     }
@@ -87,25 +90,32 @@ public class AddBooking extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                List<String> trainNames = new ArrayList<>();
-                trainNames.add("Select Train Name");
-
-                ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(AddBooking.this, android.R.layout.simple_spinner_item, trainNames);
-                spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                trainNameSpinner.setAdapter(spinnerAdapter);
-
                 trainNameSpinner = findViewById(R.id.trainNameSpinner);
                 //singleBookingDateView = findViewById(R.id.singleBookingDate);
                 no_of_tickets = findViewById(R.id.singleBookingTickets);
                 singleBookingDateReservation = findViewById(R.id.singleBookingDateReservation);
 
-                String trainName = trainNameSpinner.getSelectedItem().toString();
+                String trainName = trainNameSpinner.getSelectedItem().toString()==null? "" : trainNameSpinner.getSelectedItem().toString();
                 //String bookingDate = singleBookingDateView.getText().toString();
                 String tickets = no_of_tickets.getText().toString();
                 String reservationDate = singleBookingDateReservation.getText().toString();
 
-                MyDatabaseHelper dbHelper = new MyDatabaseHelper(context, null, null, 0);
-                SQLiteDatabase db = dbHelper.getReadableDatabase();
+                if (trainName.isEmpty() || trainName.equalsIgnoreCase("") ||
+                        tickets.isEmpty() || tickets.equalsIgnoreCase("") ||
+                        reservationDate.isEmpty() || reservationDate.equalsIgnoreCase("")) {
+                            new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+                                    .setTitleText("Error")
+                                    .setContentText("Fields cannot be blank!")
+                                    .show();
+
+                }else if(Integer.parseInt(tickets)>4){
+                    new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Error")
+                            .setContentText("Cannot book more than 04 tickets!")
+                            .show();
+                }else{
+                    MyDatabaseHelper dbHelper = new MyDatabaseHelper(context, null, null, 0);
+                    SQLiteDatabase db = dbHelper.getReadableDatabase();
 
 //                String tableName = "users";
 //
@@ -117,86 +127,86 @@ public class AddBooking extends AppCompatActivity {
 //                }
 //                db.close();
 
-                GetUserData getUserData = new GetUserData(context);
-                List<User> userList = getUserData.GetUser();
+                    GetUserData getUserData = new GetUserData(context);
+                    List<User> userList = getUserData.GetUser();
 
-                Calendar calendar = Calendar.getInstance();
-                Date currentDate = calendar.getTime();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
-                String formattedDate = sdf.format(currentDate);
-                String nic="";
-                String name ="";
+                    Calendar calendar = Calendar.getInstance();
+                    Date currentDate = calendar.getTime();
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+                    String formattedDate = sdf.format(currentDate);
+                    String nic = "";
+                    String name = "";
 
 
-                for (User user : userList) {
+                    for (User user : userList) {
                         nic = user.getNic();
                         name = user.getFname() + " " + user.getLname();
-                }
-                Gson gson = new Gson();
-                JsonObject booking = new JsonObject();
-                booking.addProperty("nic", nic);
-                booking.addProperty("trainName", trainName);
-                booking.addProperty("bookingdate", formattedDate);
-                booking.addProperty("name", name);
-                booking.addProperty("nooftickets", tickets);
-                booking.addProperty("role", "traveller");
-                booking.addProperty("reservationdate", reservationDate);
-                booking.addProperty("status", "active");
+                    }
+                    Gson gson = new Gson();
+                    JsonObject booking = new JsonObject();
+                    booking.addProperty("nic", nic);
+                    booking.addProperty("trainName", trainName);
+                    booking.addProperty("bookingdate", formattedDate);
+                    booking.addProperty("name", name);
+                    booking.addProperty("nooftickets", tickets);
+                    booking.addProperty("role", "traveller");
+                    booking.addProperty("reservationdate", reservationDate);
+                    booking.addProperty("status", "active");
 
+                    Call<JsonObject> call = RetrofitInstance
+                            .get()
+                            .create(API.class)
+                            .addBooking(booking);
 
-                new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
-                        .setTitleText("Are you sure?")
-                        .setContentText("All Details are Ok?")
-                        .setConfirmText("Yes,Add Now!")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sDialog) {
-                                Call<JsonObject> call = RetrofitInstance
-                                        .get()
-                                        .create(API.class)
-                                        .addBooking(booking);
+                    call.enqueue(new Callback<JsonObject>() {
+                        @Override
+                        public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                            if (response.isSuccessful() && response.code() == 200) {
+                                JsonObject jsonObject = response.body();
 
-                                call.enqueue(new Callback<JsonObject>() {
-                                    @Override
-                                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                                        if (response.isSuccessful() && response.code() == 200) {
-                                            JsonObject jsonObject = response.body();
-
-                                            new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE)
-                                                    .setTitleText("Success")
-                                                    .setContentText("Booking Added Successfully")
-                                                    .setConfirmText("Ok")
-                                                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                                                        @Override
-                                                        public void onClick(SweetAlertDialog sDialog) {
-                                                            Intent intent = new Intent(AddBooking.this, Dashboard.class);
-                                                            startActivity(intent);
-                                                        }
-                                                    })
-                                                    .show();
-                                        } else if(response.code() == 400){
-                                            new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
-                                                    .setTitleText("Error")
-                                                    .setContentText("Something went Wrong!")
-                                                    .show();
-                                        }else{
-                                            new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
-                                                    .setTitleText("Error")
-                                                    .setContentText("Something went Wrong!")
-                                                    .show();
-                                        }
-                                    }
-                                    @Override
-                                    public void onFailure(Call<JsonObject> call, Throwable t) {
-                                        new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
-                                                .setTitleText("Error")
-                                                .setContentText("Something went Wrong!")
-                                                .show();
-                                    }
-                                });
+                                new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE)
+                                        .setTitleText("Success")
+                                        .setContentText("Booking Added Successfully")
+                                        .setConfirmText("Ok")
+                                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                            @Override
+                                            public void onClick(SweetAlertDialog sDialog) {
+                                                Intent intent = new Intent(AddBooking.this, Dashboard.class);
+                                                startActivity(intent);
+                                            }
+                                        })
+                                        .show();
+                            } else {
+                                new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+                                        .setTitleText("Error")
+                                        .setContentText("Something went Wrong!")
+                                        .show();
                             }
-                        })
-                        .show();
+                        }
+
+                        @Override
+                        public void onFailure(Call<JsonObject> call, Throwable t) {
+                            new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+                                    .setTitleText("Error")
+                                    .setContentText("Something went Wrong!")
+                                    .show();
+                        }
+                    });
+
+//                new SweetAlertDialog(context, SweetAlertDialog.WARNING_TYPE)
+//                        .setTitleText("Are you sure?")
+//                        .setContentText("All Details are Ok?")
+//                        .setConfirmText("Yes,Add Now!")
+//                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+//                            @Override
+//                            public void onClick(SweetAlertDialog sDialog) {
+//
+//                            }
+//                        })
+//                        .show();
+                }
+
+
             }
         });
     }
@@ -209,6 +219,11 @@ public class AddBooking extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
         return menuHandler.onOptionsItemSelected(item);
     }
 
