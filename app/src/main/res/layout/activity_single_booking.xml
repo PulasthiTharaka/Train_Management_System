@@ -4,6 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:id="@+id/layout_1"
         android:layout_width="match_parent"
@@ -38,12 +42,27 @@
 <!--            android:hint="@string/customer_name"-->
 <!--            android:inputType="textCapCharacters"-->
 <!--            android:textAllCaps="true" />-->
+
+        <TextView
+            android:id="@+id/singleBookingNameLabel"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Enter Name"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/singleBookingName"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
@@ -51,15 +70,29 @@
             android:hint="@string/customer_name"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="25dp"
-            android:textAllCaps="true" />
+            android:paddingTop="10dp" />
+
+        <TextView
+            android:id="@+id/singleBookingTrainLabel"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Enter Train Name"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
 
         <TextView
             android:id="@+id/singleBookingTrain"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="1dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
@@ -67,15 +100,28 @@
             android:hint="@string/train"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="25dp"
-            android:textAllCaps="true" />
+            android:paddingTop="10dp" />
+
+        <TextView
+            android:id="@+id/singleBookingDateLabel"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Enter Booking Date"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/singleBookingDate"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="1dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
@@ -83,15 +129,28 @@
             android:hint="@string/bookingDate"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="25dp"
-            android:textAllCaps="true" />
+            android:paddingTop="10dp" />
+
+        <TextView
+            android:id="@+id/singleBookingTicketsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Enter No of Tickets"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/singleBookingTickets"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="1dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
@@ -99,15 +158,28 @@
             android:hint="@string/ticket"
             android:inputType="number"
             android:textSize="15dp"
-            android:paddingLeft="20dp"
-            android:textAllCaps="true" />
+            android:paddingLeft="20dp" />
+
+        <TextView
+            android:id="@+id/singleBookingReservationDateLabel"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Enter Reservation Date"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/singleBookingReservationDate"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="1dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
@@ -115,15 +187,28 @@
             android:hint="@string/reservationDate"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="25dp"
-            android:textAllCaps="true"/>
+            android:paddingTop="10dp" />
+
+        <TextView
+            android:id="@+id/singleBookingNicLabel"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/droidsans"
+            android:text="Enter NIC"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/singleBookingNic"
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_tiny_height"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="1dp"
             android:layout_marginRight="50dp"
             android:layout_weight="0.1"
             android:background="@drawable/signin_box"
@@ -131,8 +216,7 @@
             android:hint="@string/nic"
             android:inputType="textCapCharacters"
             android:paddingLeft="20dp"
-            android:paddingTop="25dp"
-            android:textAllCaps="true" />
+            android:paddingTop="10dp" />
 
         <TextView
             android:id="@+id/View_btn"
@@ -140,13 +224,13 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:text="@string/update"
+            android:background="@drawable/rount_button"
             android:paddingLeft="65dp"
             android:paddingTop="10dp"
+            android:text="@string/update"
             android:textColor="@color/colorWhite"
-            android:background="@drawable/rount_button"
-            android:textSize="14sp"/>
+            android:textSize="14sp" />
 
     </LinearLayout>
-
+    </ScrollView>
 </RelativeLayout>
