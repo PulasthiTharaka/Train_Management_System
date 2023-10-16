@@ -98,7 +98,7 @@
                 android:background="@drawable/signin_box"
                 android:fontFamily="@font/droidsans"
                 android:hint="@string/train"
-                android:inputType="textCapCharacters"
+                android:inputType="text"
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp" />
 
@@ -127,7 +127,7 @@
                 android:background="@drawable/signin_box"
                 android:fontFamily="@font/droidsans"
                 android:hint="@string/bookingDate"
-                android:inputType="textCapCharacters"
+                android:inputType="text"
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp" />
 
@@ -185,7 +185,7 @@
                 android:background="@drawable/signin_box"
                 android:fontFamily="@font/droidsans"
                 android:hint="@string/reservationDate"
-                android:inputType="textCapCharacters"
+                android:inputType="text"
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp" />
 
@@ -214,7 +214,7 @@
                 android:background="@drawable/signin_box"
                 android:fontFamily="@font/droidsans"
                 android:hint="@string/nic"
-                android:inputType="textCapCharacters"
+                android:inputType="text"
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp" />
 

@@ -42,7 +42,7 @@
             android:background="@drawable/signin_box"
             android:fontFamily="@font/droidsans"
             android:hint="@string/first_name"
-            android:inputType="textCapCharacters"
+            android:inputType="text"
             android:paddingLeft="20dp"/>
 
         <TextView
@@ -71,7 +71,7 @@
             android:background="@drawable/signin_box"
             android:fontFamily="@font/droidsans"
             android:hint="@string/last_name"
-            android:inputType="textCapCharacters"
+            android:inputType="text"
             android:paddingLeft="20dp"/>
 
         <TextView
@@ -130,7 +130,7 @@
             android:background="@drawable/signin_box"
             android:fontFamily="@font/droidsans"
             android:hint="@string/email"
-            android:inputType="number"
+            android:inputType="text"
             android:paddingLeft="20dp"
             android:textSize="15dp" />
 
