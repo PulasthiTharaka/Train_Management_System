@@ -1,8 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:weightSum="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/droidsans"
+                android:padding="@dimen/universal_ui_padding_10"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:text="Create a Booking..."
+                android:layout_weight="0.5"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/header_text" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/const_booking"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_weight="0.5"
+                android:layout_marginBottom="@dimen/universal_ui_padding_10"
+                android:layout_marginTop="@dimen/universal_ui_padding_10"
+                android:clickable="true"
+                android:hapticFeedbackEnabled="true">
+
+                <TextView
+                    android:id="@+id/btn_width"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="11dp"
+                    android:fontFamily="@font/droidsans"
+                    android:paddingHorizontal="60dp"
+                    android:text="@string/booking"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/sub_header_text"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lotiie_booking"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:elevation="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/btn_width"
+                    app:layout_constraintStart_toStartOf="@+id/btn_width"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/btn_1"
+                    app:lottie_speed=".3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/line_separate">
+    </LinearLayout>
 
     <ListView
         android:id="@+id/bookingListView"
