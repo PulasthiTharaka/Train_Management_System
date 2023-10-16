@@ -11,6 +11,9 @@ import com.example.train_management_system.Dashboard;
 import com.example.train_management_system.MainActivity;
 import com.example.train_management_system.Profile;
 import com.example.train_management_system.R;
+import com.example.train_management_system.Registrations;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class MenuHandler {
 
@@ -43,7 +46,17 @@ public class MenuHandler {
     }
 
     private void handleSignOutMenuItem() {
-        Intent intent = new Intent(context, MainActivity.class);
-        context.startActivity(intent);
+        new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+                .setTitleText("Are You Sure?")
+                .setContentText("Log Out the System")
+                .setConfirmText("Ok")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        Intent intent = new Intent(context, MainActivity.class);
+                        context.startActivity(intent);
+                    }
+                })
+                .show();
     }
 }
