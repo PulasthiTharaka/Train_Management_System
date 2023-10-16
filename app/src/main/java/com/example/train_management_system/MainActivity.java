@@ -31,6 +31,8 @@ import com.example.train_management_system.Models.User;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -107,34 +109,47 @@ public class MainActivity extends AppCompatActivity {
 
                                 if (jsonObject != null) {
                                     User user = gson.fromJson(jsonObject.toString(), User.class);
-                                    Log.d("Dataset23", String.valueOf(jsonObject));
-                                    Log.d("Dataset24", String.valueOf(user));
-                                    Log.d("Dataset24", String.valueOf(user.getFname()));
-                                    // Initialize the database helper
-                                    MyDatabaseHelper dbHelper = new MyDatabaseHelper(context,null,null,0);
 
-                                    // Create or open the database (this will trigger the onCreate method if the database doesn't exist)
-                                    SQLiteDatabase db = dbHelper.getWritableDatabase();
+                                    Log.d("Log Value Status",user.getStatus());
+                                    Log.d("Log Value Role",user.getRole());
 
-                                    ContentValues values = new ContentValues();
-                                    //values.put("uid", user.getId());
-                                    values.put("fname", user.getFname());
-                                    values.put("lname", user.getLname());
-                                    values.put("nic", user.getNic());
-                                    values.put("phone_no", user.getPhone_no());
-                                    values.put("status", user.getStatus());
-                                    values.put("role", user.getRole());
-                                    values.put("password", user.getPassword());
-                                    values.put("email", user.getEmail());
+                                    if(user.getStatus().equals("inactive")){
+                                        new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+                                                .setTitleText("Error")
+                                                .setContentText("Account deactivated! Please Contact admin")
+                                                .show();
+                                    }else if(!user.getRole().equals("traveller")){
+                                        new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+                                                .setTitleText("Error")
+                                                .setContentText("You are not allowed to the app")
+                                                .show();
+                                    }else{
+                                        // Initialize the database helper
+                                        MyDatabaseHelper dbHelper = new MyDatabaseHelper(context,null,null,0);
 
-                                    long newRowId = db.insert("users", null, values);
-                                    Log.d("UserData", String.valueOf(newRowId));
+                                        // Create or open the database (this will trigger the onCreate method if the database doesn't exist)
+                                        SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-                                    // Close the database
-                                    dbHelper.close();
+                                        ContentValues values = new ContentValues();
+                                        //values.put("uid", user.getId());
+                                        values.put("fname", user.getFname());
+                                        values.put("lname", user.getLname());
+                                        values.put("nic", user.getNic());
+                                        values.put("phone_no", user.getPhone_no());
+                                        values.put("status", user.getStatus());
+                                        values.put("role", user.getRole());
+                                        values.put("password", user.getPassword());
+                                        values.put("email", user.getEmail());
 
-                                    Intent intent = new Intent(MainActivity.this, Dashboard.class);
-                                    startActivity(intent);
+                                        long newRowId = db.insert("users", null, values);
+                                        Log.d("UserData", String.valueOf(newRowId));
+
+                                        // Close the database
+                                        dbHelper.close();
+
+                                        Intent intent = new Intent(MainActivity.this, Dashboard.class);
+                                        startActivity(intent);
+                                    }
                                 }
                             } else {
                                 new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
