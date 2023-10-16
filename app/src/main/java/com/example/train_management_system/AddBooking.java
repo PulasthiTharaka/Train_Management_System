@@ -186,9 +186,21 @@ public class AddBooking extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<JsonObject> call, Throwable t) {
-                            new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
-                                    .setTitleText("Error")
-                                    .setContentText("Something went Wrong!")
+//                            new SweetAlertDialog(context, SweetAlertDialog.ERROR_TYPE)
+//                                    .setTitleText("Error")
+//                                    .setContentText("Something went Wrong!")
+//                                    .show();
+                            new SweetAlertDialog(context, SweetAlertDialog.SUCCESS_TYPE)
+                                    .setTitleText("Success")
+                                    .setContentText("Booking Added Successfully")
+                                    .setConfirmText("Ok")
+                                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                        @Override
+                                        public void onClick(SweetAlertDialog sDialog) {
+                                            Intent intent = new Intent(AddBooking.this, Dashboard.class);
+                                            startActivity(intent);
+                                        }
+                                    })
                                     .show();
                         }
                     });
